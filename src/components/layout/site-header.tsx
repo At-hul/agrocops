@@ -22,12 +22,26 @@ export function SiteHeader() {
         Skip to main content
       </a>
       <div className="container flex min-h-16 items-center justify-between gap-4">
-        <a href="/" className="focus-ring rounded-md" aria-label="Agrocops home">
-          <span className="block text-base font-extrabold text-primary md:text-lg">
-            {siteConfig.name}
-          </span>
-          <span className="hidden text-xs font-semibold text-muted-foreground sm:block">
-            {siteConfig.tagline}
+        <a
+          href="/"
+          className="focus-ring flex min-w-0 items-center gap-2 rounded-md sm:gap-3"
+          aria-label="Agrocops Chelakkara home"
+        >
+          <img
+            className="size-10 shrink-0 object-contain sm:size-12"
+            src={siteConfig.logoPath}
+            alt="Agrocops Official Logo"
+            width="48"
+            height="48"
+            decoding="async"
+          />
+          <span className="min-w-0">
+            <span className="block truncate text-sm font-extrabold uppercase text-primary sm:text-base md:text-lg">
+              Agrocops Chelakkara
+            </span>
+            <span className="hidden text-xs font-semibold text-muted-foreground sm:block">
+              {siteConfig.tagline}
+            </span>
           </span>
         </a>
 

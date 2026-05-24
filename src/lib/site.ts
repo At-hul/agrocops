@@ -15,4 +15,8 @@ export const siteConfig = {
   siteUrl:
     import.meta.env.VITE_PUBLIC_SITE_URL ||
     'https://www.agrocopschelakkara.com',
+  logoPath: '/brand/agrocops-logo-256.png',
+  logoFullPath: '/brand/agrocops-official-logo.png',
+  ogImagePath: '/social/og-image.png',
+  twitterImagePath: '/social/twitter-image.png',
 }

@@ -1,15 +1,31 @@
 import { MapPin, MessageCircle, Phone } from 'lucide-react'
-import { siteConfig } from '~/lib/site'
 import { serviceAreas } from '~/features/content/home-content'
 import { createWhatsAppUrl } from '~/features/whatsapp/deep-links'
+import { siteConfig } from '~/lib/site'
 
 export function SiteFooter() {
   return (
     <footer className="border-t bg-primary text-primary-foreground">
       <div className="container grid gap-8 py-12 md:grid-cols-[1.3fr_0.8fr_0.9fr]">
         <div>
-          <p className="text-xl font-extrabold">{siteConfig.name}</p>
-          <p className="mt-2 max-w-md text-sm leading-6 text-primary-foreground/78">
+          <div className="flex items-center gap-3">
+            <img
+              className="size-16 shrink-0 rounded-md bg-white object-contain p-1"
+              src={siteConfig.logoPath}
+              alt="Agrocops Official Logo"
+              width="64"
+              height="64"
+              loading="lazy"
+              decoding="async"
+            />
+            <div>
+              <p className="text-xl font-extrabold uppercase">{siteConfig.name}</p>
+              <p className="mt-1 text-sm font-bold text-accent">
+                An Agrocops Franchise Outlet
+              </p>
+            </div>
+          </div>
+          <p className="mt-4 max-w-md text-sm leading-6 text-primary-foreground/78">
             Product-first agricultural support, seasonal guidance, and farmer
             community growth for Chelakkara and nearby service areas.
           </p>

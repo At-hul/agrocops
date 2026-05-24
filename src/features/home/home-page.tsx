@@ -190,6 +190,29 @@ function TrustSection() {
           description="The platform leads with local presence, advisory support, product quality, and visible community impact."
           align="center"
         />
+        <Card className="mt-10 grid gap-5 p-5 md:grid-cols-[auto_1fr] md:items-center">
+          <img
+            className="size-24 shrink-0 rounded-md bg-white object-contain p-2 shadow-sm"
+            src={siteConfig.logoPath}
+            alt="Agrocops Official Logo"
+            width="96"
+            height="96"
+            loading="lazy"
+            decoding="async"
+          />
+          <div>
+            <Badge tone="green">Part of the Agrocops Network</Badge>
+            <h3 className="mt-3 text-2xl font-extrabold">
+              Agrocops Chelakkara brings the wider Agrocops ecosystem closer to local growers
+            </h3>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">
+              The Chelakkara outlet keeps the relationship local while using
+              Agrocops brand knowledge, official product categories, and
+              farmer-first advisory principles to support store visits and
+              WhatsApp guidance.
+            </p>
+          </div>
+        </Card>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {trustMetrics.map((metric) => (
             <Card key={metric.label} className="p-5 text-center">
