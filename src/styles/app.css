@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 78 38% 97%;
+  --foreground: 140 38% 9%;
+  --card: 0 0% 100%;
+  --card-foreground: 140 38% 9%;
+  --primary: 144 61% 20%;
+  --primary-foreground: 96 45% 98%;
+  --secondary: 142 71% 45%;
+  --secondary-foreground: 140 38% 9%;
+  --accent: 41 94% 40%;
+  --accent-foreground: 40 43% 8%;
+  --earth: 26 55% 31%;
+  --earth-foreground: 48 44% 96%;
+  --muted: 90 22% 91%;
+  --muted-foreground: 131 8% 40%;
+  --border: 96 19% 87%;
+  --input: 96 19% 87%;
+  --ring: 142 71% 32%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 140 34% 7%;
+  --foreground: 96 45% 96%;
+  --card: 140 30% 10%;
+  --card-foreground: 96 45% 96%;
+  --primary: 142 70% 42%;
+  --primary-foreground: 140 38% 9%;
+  --secondary: 144 61% 24%;
+  --secondary-foreground: 96 45% 96%;
+  --accent: 43 92% 52%;
+  --accent-foreground: 40 43% 8%;
+  --earth: 26 45% 42%;
+  --earth-foreground: 48 44% 96%;
+  --muted: 139 24% 14%;
+  --muted-foreground: 98 11% 72%;
+  --border: 139 22% 19%;
+  --input: 139 22% 19%;
+  --ring: 142 70% 42%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.focus-ring {
+  @apply outline-none ring-offset-2 ring-offset-background focus-visible:ring-2 focus-visible:ring-ring;
+}
+
+.section-padding {
+  @apply py-14 md:py-20;
+}
+
+main,
+footer {
+  padding-bottom: 8rem;
+}
+
+@media (min-width: 768px) {
+  main,
+  footer {
+    padding-bottom: 0;
+  }
+}
