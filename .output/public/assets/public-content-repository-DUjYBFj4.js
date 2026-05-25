@@ -1,0 +1,1 @@
+var e=()=>({data:[],error:null,configured:!1});async function t(){return e()}async function n(e){return{data:null,error:null,configured:!1}}async function r(){return e()}async function i(e){return{data:null,error:null,configured:!1}}async function a(){return e()}async function o(){return e()}async function s(){return e()}export{o as a,s as c,a as i,i as n,n as o,r,t as s,e as t};

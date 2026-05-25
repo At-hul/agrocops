@@ -6,7 +6,7 @@ import { leadUpdateSchema } from './admin-schemas'
 
 export type AdminRecord = Record<string, any> & { id?: string }
 
-const arrayFields = new Set(['benefits', 'suitable_crops', 'pack_sizes'])
+const arrayFields = new Set(['benefits', 'suitable_crops', 'pack_sizes', 'images'])
 
 export async function fetchModuleRecords(config: ModuleConfig) {
   if (!supabase) return { data: [] as AdminRecord[], error: null }

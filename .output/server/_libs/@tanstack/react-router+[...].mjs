@@ -5522,6 +5522,40 @@ function RouterProvider({ router, ...rest }) {
 	});
 }
 //#endregion
+//#region node_modules/@tanstack/react-router/dist/esm/useRouterState.js
+/**
+* Subscribe to the router's state store with optional selection and
+* structural sharing for render optimization.
+*
+* Options:
+* - `select`: Project the full router state to a derived slice
+* - `structuralSharing`: Replace-equal semantics for stable references
+* - `router`: Read state from a specific router instance instead of context
+*
+* @returns The selected router state (or the full state by default).
+* @link https://tanstack.com/router/latest/docs/framework/react/api/router/useRouterStateHook
+*/
+function useRouterState(opts) {
+	const contextRouter = useRouter({ warn: opts?.router === void 0 });
+	const router = opts?.router || contextRouter;
+	{
+		const state = router.stores.__store.get();
+		return opts?.select ? opts.select(state) : state;
+	}
+	const previousResult = (0, import_react.useRef)(void 0);
+	return useStore(router.stores.__store, (state) => {
+		if (opts?.select) {
+			if (opts.structuralSharing ?? router.options.defaultStructuralSharing) {
+				const newSlice = replaceEqualDeep(previousResult.current, opts.select(state));
+				previousResult.current = newSlice;
+				return newSlice;
+			}
+			return opts.select(state);
+		}
+		return state;
+	});
+}
+//#endregion
 //#region node_modules/@tanstack/react-router/dist/esm/Asset.js
 var noopScriptHandler = () => {};
 function setScriptAttrs(script, attrs) {
@@ -14307,4 +14341,4 @@ var renderRouterToStream = async ({ request, router, responseHeaders, children }
 	throw new Error("No renderToReadableStream or renderToPipeableStream found in react-dom/server. Ensure you are using a version of react-dom that supports streaming.");
 };
 //#endregion
-export { isNotFound as C, require_jsx_runtime as D, decodePath as E, rootRouteId as S, invariant as T, resolveManifestAssetLink as _, createRouter as a, isRedirect as b, createFileRoute as c, TSR_SCRIPT_BARRIER_ID as d, createInlineCssPlaceholderAsset as f, getStylesheetHref as g, getScriptPreloadAttrs as h, RouterProvider as i, createRootRoute as l, getManifestScriptFormat as m, Scripts as n, Outlet as o, createInlineCssStyleAsset as p, HeadContent as r, lazyRouteComponent as s, renderRouterToStream as t, GLOBAL_TSR as u, resolveManifestCssLink as v, createLRUCache as w, isResolvedRedirect as x, executeRewriteInput as y };
+export { rootRouteId as C, decodePath as D, invariant as E, require_jsx_runtime as O, isResolvedRedirect as S, createLRUCache as T, getStylesheetHref as _, RouterProvider as a, executeRewriteInput as b, lazyRouteComponent as c, GLOBAL_TSR as d, TSR_SCRIPT_BARRIER_ID as f, getScriptPreloadAttrs as g, getManifestScriptFormat as h, useRouterState as i, createFileRoute as l, createInlineCssStyleAsset as m, Scripts as n, createRouter as o, createInlineCssPlaceholderAsset as p, HeadContent as r, Outlet as s, renderRouterToStream as t, createRootRoute as u, resolveManifestAssetLink as v, isNotFound as w, isRedirect as x, resolveManifestCssLink as y };

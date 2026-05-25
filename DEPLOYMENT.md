@@ -47,6 +47,22 @@ After `schema.sql` succeeds, run `supabase/seed-product-categories.sql` in the S
 - Flower Seeds
 - Garden Pots & Containers
 
+### Optional Starter Content Seed
+
+Run `supabase/seed-starter-content.sql` after the category seed to populate:
+
+- Published starter products
+- Published farming articles
+- Published crop guides
+- Upcoming events
+- Published success stories
+
+Public pages read these published records directly from Supabase. If the tables
+are empty, the site shows helpful empty states instead of fake rows.
+
+For exact content workflows, image uploads, and publishing steps, use
+`CONTENT_MANAGEMENT.md`.
+
 ### Enable Auth
 
 1. In Supabase, open Authentication.
@@ -97,6 +113,11 @@ Supported roles:
    - `status` is `active`.
    - `role` is `owner`, `manager`, or `editor`.
    - The `user_id` matches the Supabase Auth user UUID.
+   - Public read policies exist for published products, articles, crop guides,
+     events, success stories, gallery items, and reviews.
+   - The anon/authenticated grants from `schema.sql` ran successfully. Newer
+     Supabase projects may require explicit grants before tables are reachable
+     through the Data API.
 
 ### Test Public Form Inserts
 

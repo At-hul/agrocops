@@ -13,6 +13,7 @@ export const productSchema = z.object({
   price_range: optionalText,
   featured_crop: optionalText,
   stock_status: z.enum(['in_stock', 'limited', 'out_of_stock', 'on_request']),
+  images: z.string().optional(),
   pack_sizes: z.string().optional(),
   suitable_crops: z.string().optional(),
   benefits: z.string().optional(),
@@ -31,6 +32,7 @@ export const articleSchema = z.object({
   content_ml: optionalText,
   category: optionalText,
   reading_time: optionalText,
+  featured_image: optionalText,
   meta_title: optionalText,
   meta_description: optionalText,
   status: z.enum(['draft', 'published', 'archived']),
@@ -54,6 +56,7 @@ export const eventSchema = z.object({
   event_date: optionalText,
   location: optionalText,
   capacity: z.coerce.number().optional().nullable(),
+  featured_image: optionalText,
   status: z.enum(['draft', 'active', 'published', 'archived']),
 })
 

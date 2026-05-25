@@ -44,7 +44,7 @@ export function EmergencyCropHelpCta({ className }: { className?: string }) {
   return (
     <a
       className={cn(
-        'focus-ring fixed bottom-20 left-4 right-4 z-40 inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-accent px-4 py-3 text-sm font-bold text-accent-foreground shadow-soft transition-colors hover:bg-accent/90 md:bottom-4 md:left-auto md:right-6 md:w-auto',
+        'focus-ring fixed bottom-4 right-6 z-40 hidden min-h-12 items-center justify-center gap-2 rounded-md bg-accent px-4 py-3 text-sm font-bold text-accent-foreground shadow-soft transition-colors hover:bg-accent/90 md:inline-flex',
         className,
       )}
       href={createWhatsAppUrl({ context: 'emergency', title: 'Urgent crop guidance' })}
@@ -55,6 +55,23 @@ export function EmergencyCropHelpCta({ className }: { className?: string }) {
       <Siren className="size-5" aria-hidden="true" />
       Need urgent crop guidance? WhatsApp Agrocops now
     </a>
+  )
+}
+
+export function InlineEmergencyCropHelpCta() {
+  return (
+    <section className="bg-accent/14 px-4 py-6 md:hidden" aria-label="Urgent crop guidance">
+      <a
+        className="focus-ring mx-auto flex max-w-md items-center justify-center gap-2 rounded-md bg-accent px-4 py-4 text-center text-sm font-extrabold leading-6 text-accent-foreground shadow-soft"
+        href={createWhatsAppUrl({ context: 'emergency', title: 'Urgent crop guidance' })}
+        target="_blank"
+        rel="noreferrer"
+        data-analytics-event="emergency_crop_help_click"
+      >
+        <Siren className="size-5 shrink-0" aria-hidden="true" />
+        Need urgent crop guidance? WhatsApp Agrocops now
+      </a>
+    </section>
   )
 }
 

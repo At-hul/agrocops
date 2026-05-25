@@ -14,32 +14,35 @@ const navItems = [
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b bg-background/92 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/88 backdrop-blur-xl">
       <a
         href="#main-content"
         className="focus-ring sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-card focus:px-4 focus:py-2"
       >
         Skip to main content
       </a>
-      <div className="container flex min-h-16 items-center justify-between gap-4">
+      <div className="premium-container flex min-h-[4.75rem] items-center justify-between gap-3">
         <a
           href="/"
-          className="focus-ring flex min-w-0 items-center gap-2 rounded-md sm:gap-3"
+          className="focus-ring flex min-w-0 shrink-0 items-center gap-2 rounded-xl sm:gap-3"
           aria-label="Agrocops Chelakkara home"
         >
           <img
-            className="size-10 shrink-0 object-contain sm:size-12"
+            className="size-12 shrink-0 object-contain sm:size-14"
             src={siteConfig.logoPath}
             alt="Agrocops Official Logo"
-            width="48"
-            height="48"
+            width="56"
+            height="56"
             decoding="async"
           />
           <span className="min-w-0">
-            <span className="block truncate text-sm font-extrabold uppercase text-primary sm:text-base md:text-lg">
-              Agrocops Chelakkara
+            <span className="hidden whitespace-nowrap text-sm font-black uppercase tracking-[0.08em] text-primary sm:block md:text-lg">
+              AGROCOPS CHELAKKARA
             </span>
-            <span className="hidden text-xs font-semibold text-muted-foreground sm:block">
+            <span className="block whitespace-nowrap text-sm font-black uppercase tracking-[0.08em] text-primary sm:hidden">
+              Chelakkara
+            </span>
+            <span className="hidden text-xs font-bold text-muted-foreground sm:block">
               {siteConfig.tagline}
             </span>
           </span>
@@ -49,7 +52,7 @@ export function SiteHeader() {
           {navItems.map((item) => (
             <a
               key={item.href}
-              className="focus-ring rounded-md px-3 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              className="focus-ring rounded-full px-3.5 py-2 text-sm font-bold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
               href={item.href}
             >
               {item.label}
@@ -62,7 +65,7 @@ export function SiteHeader() {
             className={buttonClassName({
               variant: 'outline',
               size: 'sm',
-              className: 'hidden lg:inline-flex',
+              className: 'hidden rounded-full lg:inline-flex',
             })}
             href={siteConfig.phoneHref}
             data-analytics-event="call_click"
@@ -74,7 +77,7 @@ export function SiteHeader() {
             className={buttonClassName({
               variant: 'outline',
               size: 'sm',
-              className: 'hidden xl:inline-flex',
+              className: 'hidden rounded-full xl:inline-flex',
             })}
             href={siteConfig.directionsUrl}
             target="_blank"
@@ -85,7 +88,11 @@ export function SiteHeader() {
             Directions
           </a>
           <a
-            className={buttonClassName({ variant: 'primary', size: 'sm' })}
+            className={buttonClassName({
+              variant: 'primary',
+              size: 'sm',
+              className: 'rounded-full shadow-[0_14px_28px_rgba(11,122,42,0.18)]',
+            })}
             href={createWhatsAppUrl({ context: 'community', title: 'Header CTA' })}
             target="_blank"
             rel="noreferrer"
@@ -107,7 +114,7 @@ export function SiteHeader() {
               <Menu className="size-5" aria-hidden="true" />
             </summary>
             <nav
-              className="absolute right-0 top-12 grid w-64 gap-1 rounded-lg border bg-card p-2 shadow-soft"
+              className="absolute right-0 top-14 grid w-72 gap-1 rounded-2xl border bg-card p-2 shadow-soft"
               aria-label="Mobile"
             >
               {navItems.map((item) => (

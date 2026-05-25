@@ -1,0 +1,1 @@
+import{C as e,T as t,m as n}from"./index-B8P4BTaW.js";t();var r=e();function i({className:e,...t}){return(0,r.jsx)(`div`,{className:n(`rounded-lg border bg-card text-card-foreground shadow-sm`,e),...t})}export{i as t};

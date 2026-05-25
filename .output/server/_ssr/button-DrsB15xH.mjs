@@ -1,6 +1,6 @@
 import "../_runtime.mjs";
 import { r as require_react } from "../_libs/@hookform/resolvers+[...].mjs";
-import { D as require_jsx_runtime } from "../_libs/@tanstack/react-router+[...].mjs";
+import { O as require_jsx_runtime } from "../_libs/@tanstack/react-router+[...].mjs";
 import { n as clsx, t as cva } from "../_libs/class-variance-authority+clsx.mjs";
 import { t as twMerge } from "../_libs/tailwind-merge.mjs";
 require_react();

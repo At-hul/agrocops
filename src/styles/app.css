@@ -1,28 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: 78 38% 97%;
-  --foreground: 140 38% 9%;
+  --background: 70 43% 98%;
+  --foreground: 144 39% 9%;
   --card: 0 0% 100%;
-  --card-foreground: 140 38% 9%;
-  --primary: 144 61% 20%;
-  --primary-foreground: 96 45% 98%;
-  --secondary: 142 71% 45%;
-  --secondary-foreground: 140 38% 9%;
-  --accent: 41 94% 40%;
-  --accent-foreground: 40 43% 8%;
-  --earth: 26 55% 31%;
+  --card-foreground: 144 39% 9%;
+  --primary: 143 67% 20%;
+  --primary-foreground: 72 48% 98%;
+  --secondary: 136 56% 42%;
+  --secondary-foreground: 72 48% 98%;
+  --accent: 39 92% 47%;
+  --accent-foreground: 42 56% 9%;
+  --earth: 30 37% 34%;
   --earth-foreground: 48 44% 96%;
-  --muted: 90 22% 91%;
-  --muted-foreground: 131 8% 40%;
-  --border: 96 19% 87%;
-  --input: 96 19% 87%;
+  --muted: 78 28% 92%;
+  --muted-foreground: 138 11% 34%;
+  --border: 82 21% 86%;
+  --input: 82 21% 86%;
   --ring: 142 71% 32%;
-  --radius: 0.5rem;
+  --radius: 0.75rem;
 }
 
 .dark {
@@ -58,7 +58,10 @@ body {
   background: hsl(var(--background));
   color: hsl(var(--foreground));
   font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 17px;
   text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -81,7 +84,51 @@ body {
 }
 
 .section-padding {
-  @apply py-14 md:py-20;
+  @apply py-16 md:py-24;
+}
+
+.premium-container {
+  @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
+}
+
+.premium-eyebrow {
+  @apply text-xs font-black uppercase tracking-[0.18em] text-accent;
+}
+
+.premium-heading {
+  @apply text-4xl font-black leading-[0.95] tracking-normal text-foreground md:text-6xl;
+}
+
+.premium-copy {
+  @apply text-base leading-8 text-muted-foreground md:text-lg;
+}
+
+.surface-soft {
+  @apply border bg-card shadow-[0_24px_70px_rgba(19,53,31,0.08)];
+}
+
+.hover-lift {
+  @apply transition-[transform,box-shadow,border-color] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_28px_80px_rgba(19,53,31,0.13)];
+}
+
+.image-zoom {
+  @apply transition-transform duration-500 ease-out group-hover:scale-[1.03];
+}
+
+.reveal-soft {
+  animation: reveal-soft 520ms ease-out both;
+}
+
+@keyframes reveal-soft {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 main,

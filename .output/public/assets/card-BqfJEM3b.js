@@ -1,1 +1,0 @@
-import{D as e,F as t,I as n}from"./index-BmYjfUnu.js";n();var r=t();function i({className:t,...n}){return(0,r.jsx)(`div`,{className:e(`rounded-lg border bg-card text-card-foreground shadow-sm`,t),...n})}export{i as t};

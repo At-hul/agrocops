@@ -312,11 +312,26 @@ to authenticated
 using (public.current_admin_role() in ('owner', 'manager'))
 with check (public.current_admin_role() in ('owner', 'manager'));
 
+create policy "Public can read product categories"
+on product_categories for select
+to anon, authenticated
+using (true);
+
+create policy "Public can read published products"
+on products for select
+to anon, authenticated
+using (status = 'published');
+
 create policy "Admins and editors can manage articles"
 on articles for all
 to authenticated
 using (public.is_admin())
 with check (public.is_admin());
+
+create policy "Public can read published articles"
+on articles for select
+to anon, authenticated
+using (status = 'published');
 
 create policy "Admins and editors can manage crop guides"
 on crop_guides for all
@@ -324,11 +339,21 @@ to authenticated
 using (public.is_admin())
 with check (public.is_admin());
 
+create policy "Public can read published crop guides"
+on crop_guides for select
+to anon, authenticated
+using (status = 'published');
+
 create policy "Admins and editors can manage events"
 on events for all
 to authenticated
 using (public.is_admin())
 with check (public.is_admin());
+
+create policy "Public can read published events"
+on events for select
+to anon, authenticated
+using (status in ('active', 'published'));
 
 create policy "Owner and manager can manage success stories"
 on success_stories for all
@@ -336,17 +361,32 @@ to authenticated
 using (public.current_admin_role() in ('owner', 'manager'))
 with check (public.current_admin_role() in ('owner', 'manager'));
 
+create policy "Public can read published success stories"
+on success_stories for select
+to anon, authenticated
+using (status = 'published');
+
 create policy "Admins and editors can manage gallery"
 on gallery_items for all
 to authenticated
 using (public.is_admin())
 with check (public.is_admin());
 
+create policy "Public can read published gallery"
+on gallery_items for select
+to anon, authenticated
+using (status = 'published');
+
 create policy "Owner and manager can manage reviews"
 on reviews for all
 to authenticated
 using (public.current_admin_role() in ('owner', 'manager'))
 with check (public.current_admin_role() in ('owner', 'manager'));
+
+create policy "Public can read published reviews"
+on reviews for select
+to anon, authenticated
+using (status = 'published');
 
 create policy "Owner and manager can manage leads"
 on leads for all
@@ -396,3 +436,42 @@ create policy "Public can submit success stories"
 on success_stories for insert
 to anon, authenticated
 with check (status in ('draft', 'review'));
+
+grant usage on schema public to anon, authenticated;
+
+grant select on
+  product_categories,
+  products,
+  articles,
+  crop_guides,
+  events,
+  success_stories,
+  gallery_items,
+  reviews
+to anon, authenticated;
+
+grant insert on
+  leads,
+  community_registrations,
+  event_registrations,
+  newsletter_subscribers,
+  success_stories
+to anon, authenticated;
+
+grant select, insert, update, delete on
+  product_categories,
+  products,
+  service_areas,
+  seasonal_campaigns,
+  articles,
+  crop_guides,
+  events,
+  community_registrations,
+  event_registrations,
+  newsletter_subscribers,
+  success_stories,
+  gallery_items,
+  reviews,
+  leads,
+  admin_users
+to authenticated;

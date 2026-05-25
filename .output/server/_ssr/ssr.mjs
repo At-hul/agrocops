@@ -1,6 +1,6 @@
 import "../_runtime.mjs";
 import { r as require_react } from "../_libs/@hookform/resolvers+[...].mjs";
-import { C as isNotFound, D as require_jsx_runtime, S as rootRouteId, T as invariant, _ as resolveManifestAssetLink, b as isRedirect, g as getStylesheetHref, h as getScriptPreloadAttrs, i as RouterProvider, m as getManifestScriptFormat, t as renderRouterToStream, v as resolveManifestCssLink, x as isResolvedRedirect, y as executeRewriteInput } from "../_libs/@tanstack/react-router+[...].mjs";
+import { C as rootRouteId, E as invariant, O as require_jsx_runtime, S as isResolvedRedirect, _ as getStylesheetHref, a as RouterProvider, b as executeRewriteInput, g as getScriptPreloadAttrs, h as getManifestScriptFormat, t as renderRouterToStream, v as resolveManifestAssetLink, w as isNotFound, x as isRedirect, y as resolveManifestCssLink } from "../_libs/@tanstack/react-router+[...].mjs";
 import { n as createMemoryHistory } from "../_libs/tanstack__history.mjs";
 import { a as getOrigin, c as createSerializationAdapter, d as iu, f as su, i as getNormalizedURL, l as makeSerovalPlugin, n as mergeHeaders, o as defaultSerovalPlugins, r as attachRouterServerSsrUtils, s as createRawStreamRPCPlugin, t as defineHandlerCallback, u as Pu } from "../_libs/@tanstack/router-core+[...].mjs";
 import { n as toResponse, t as H3Event } from "../_libs/h3-v2.mjs";
@@ -83,7 +83,7 @@ var HEADERS = { TSS_SHELL: "X-TSS_SHELL" };
 * the dev styles URL for route-scoped CSS collection.
 */
 async function getStartManifest(matchedRoutes) {
-	const { tsrStartManifest } = await import("../_tanstack-start-manifest_v-CUkXmH_8.mjs");
+	const { tsrStartManifest } = await import("../_tanstack-start-manifest_v-CrTnizRL.mjs");
 	const startManifest = tsrStartManifest();
 	let routes = startManifest.routes;
 	routes[rootRouteId];
@@ -1219,7 +1219,7 @@ var getBaseManifest = getProdBaseManifest;
 var createEarlyHintsForRequest = createEarlyHintsCollector;
 async function loadEntries() {
 	const [routerEntry, startEntry, pluginAdapters] = await Promise.all([
-		import("./router-9diDmuQf.mjs"),
+		import("./router-ZRWf8YuT.mjs"),
 		import("./start-5Z2QO8AU.mjs"),
 		import("../__23tanstack-start-plugin-adapters-BzCA6dXo.mjs")
 	]);

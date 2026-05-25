@@ -65,6 +65,7 @@ export const moduleConfigs: ModuleConfig[] = [
       { name: 'brand', label: 'Brand' },
       { name: 'price_range', label: 'Price range' },
       { name: 'featured_crop', label: 'Featured crop' },
+      { name: 'images', label: 'Image URLs', type: 'textarea' },
       { name: 'benefits', label: 'Benefits', type: 'textarea' },
       { name: 'suitable_crops', label: 'Suitable crops' },
       { name: 'is_featured', label: 'Featured product', type: 'checkbox' },
@@ -89,6 +90,7 @@ export const moduleConfigs: ModuleConfig[] = [
       { name: 'content', label: 'Content', type: 'textarea' },
       { name: 'category', label: 'Category' },
       { name: 'reading_time', label: 'Reading time' },
+      { name: 'featured_image', label: 'Featured image URL' },
       { name: 'title_ml', label: 'Malayalam title' },
       { name: 'meta_title', label: 'Meta title' },
       { name: 'meta_description', label: 'Meta description', type: 'textarea' },
@@ -135,6 +137,7 @@ export const moduleConfigs: ModuleConfig[] = [
       { name: 'event_date', label: 'Event date', type: 'datetime' },
       { name: 'location', label: 'Location' },
       { name: 'capacity', label: 'Capacity', type: 'number' },
+      { name: 'featured_image', label: 'Featured image URL' },
       {
         name: 'status',
         label: 'Status',

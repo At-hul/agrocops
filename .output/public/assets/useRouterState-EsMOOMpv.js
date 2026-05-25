@@ -1,0 +1,1 @@
+import{E as e,S as t,T as n,w as r,x as i}from"./index-B8P4BTaW.js";var a=e(n(),1);function o(e){let n=t({warn:e?.router===void 0}),o=e?.router||n,s=(0,a.useRef)(void 0);return i(o.stores.__store,t=>{if(e?.select){if(e.structuralSharing??o.options.defaultStructuralSharing){let n=r(s.current,e.select(t));return s.current=n,n}return e.select(t)}return t})}export{o as t};

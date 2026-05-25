@@ -49,6 +49,14 @@ authenticated user's Supabase session plus Row Level Security policies.
 
 The schema lives in `supabase/schema.sql` and includes products, service areas, leads, seasonal campaigns, bilingual-ready articles, crop guides, events, community registrations, success stories, gallery items, and reviews.
 
+Public pages read published Supabase records when available. Run
+`supabase/seed-starter-content.sql` after the schema and category seed to add
+realistic starter products, articles, crop guides, events, and success stories.
+
+Use [CONTENT_MANAGEMENT.md](./CONTENT_MANAGEMENT.md) for exact steps to upload
+images, add products, publish articles, publish crop guides, and manage launch
+content.
+
 Lead pipeline statuses:
 
 - `new`
@@ -114,10 +122,7 @@ The application no longer depends on built-in sample rows. Empty Supabase tables
 Suggested first records:
 
 - Run `supabase/seed-product-categories.sql` to install the official Agrocops product category structure.
-- One published product.
-- One article draft.
-- One crop guide.
-- One upcoming event.
+- Run `supabase/seed-starter-content.sql` for realistic published starter content.
 - One test lead submitted through the public contact form.
 
 ## Deployment Checklist

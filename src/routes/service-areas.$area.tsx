@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { MapPin } from 'lucide-react'
+import { MapPin, Phone, Sprout } from 'lucide-react'
 import { WhatsappCta } from '~/components/cta/whatsapp-cta'
 import { Badge } from '~/components/ui/badge'
 import { buttonClassName } from '~/components/ui/button'
@@ -35,45 +35,61 @@ function ServiceAreaPage() {
   const area = serviceAreaPages.find((item) => item.slug === slug) ?? serviceAreaPages[0]
 
   return (
-    <div>
-      <section className="section-padding bg-primary text-primary-foreground">
-        <div className="container max-w-4xl">
-          <Badge tone="yellow">Service Area</Badge>
-          <h1 className="mt-5 text-4xl font-extrabold md:text-6xl">{area.title}</h1>
-          <p className="mt-5 text-lg leading-8 text-primary-foreground/80">
+    <div className="bg-background">
+      <section className="relative overflow-hidden bg-[linear-gradient(135deg,#fffdf7_0%,#edf5e8_58%,#ffffff_100%)]">
+        <div className="premium-container grid gap-10 py-16 md:py-24 lg:grid-cols-[minmax(0,0.95fr)_minmax(320px,0.65fr)] lg:items-center">
+          <div>
+            <p className="premium-eyebrow">Service Area</p>
+            <h1 className="premium-heading mt-4 text-primary">{area.title}</h1>
+            <p className="premium-copy mt-5 max-w-2xl">
             {area.description}
-          </p>
-          <WhatsappCta
-            label={`Ask Agrocops from ${area.name}`}
-            context="service-area"
-            serviceArea={area.name}
-            title={area.title}
-            variant="accent"
-            className="mt-8"
-          />
-          <a
-            className={buttonClassName({
-              variant: 'outline',
-              size: 'lg',
-              className:
-                'ml-0 mt-3 border-white/40 bg-white/10 text-white hover:bg-white/18 sm:ml-3',
-            })}
-            href={siteConfig.directionsUrl}
-            target="_blank"
-            rel="noreferrer"
-            data-analytics-event="directions_click"
-          >
-            <MapPin className="size-5" aria-hidden="true" />
-            Get Directions
-          </a>
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <WhatsappCta
+                label={`Ask from ${area.name}`}
+                context="service-area"
+                serviceArea={area.name}
+                title={area.title}
+              />
+              <a
+                className={buttonClassName({ variant: 'outline', size: 'lg' })}
+                href={siteConfig.phoneHref}
+                data-analytics-event="call_click"
+              >
+                <Phone className="size-5" aria-hidden="true" />
+                Call Now
+              </a>
+              <a
+                className={buttonClassName({ variant: 'outline', size: 'lg' })}
+                href={siteConfig.directionsUrl}
+                target="_blank"
+                rel="noreferrer"
+                data-analytics-event="directions_click"
+              >
+                <MapPin className="size-5" aria-hidden="true" />
+                Get Directions
+              </a>
+            </div>
+          </div>
+          <Card className="surface-soft hover-lift p-6">
+            <Badge tone="green">Near Chelakkara</Badge>
+            <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-primary">
+              Local crop support for {area.name}
+            </h2>
+            <p className="mt-3 text-base leading-7 text-muted-foreground">
+              Message before travelling to check stock, pack sizes, seasonal
+              recommendations, and the best time to visit the outlet.
+            </p>
+          </Card>
         </div>
       </section>
-      <section className="section-padding bg-background">
-        <div className="container grid gap-4 md:grid-cols-3">
+      <section className="py-14 md:py-20">
+        <div className="premium-container grid gap-4 md:grid-cols-3">
           {['Popular products', 'Seasonal advice', 'Directions and visit intent'].map((title) => (
-            <Card key={title} className="p-5">
-              <h2 className="text-xl font-bold">{title}</h2>
-              <p className="mt-3 text-sm leading-6 text-muted-foreground">
+            <Card key={title} className="surface-soft p-6">
+              <Sprout className="size-6 text-accent" aria-hidden="true" />
+              <h2 className="mt-4 text-2xl font-extrabold text-primary">{title}</h2>
+              <p className="mt-3 text-base leading-7 text-muted-foreground">
                 Get product availability, seasonal crop guidance, WhatsApp
                 support, and directions to Agrocops Chelakkara from {area.name}.
               </p>

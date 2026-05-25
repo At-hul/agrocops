@@ -182,8 +182,10 @@ export function ModuleManager({ config, role }: ModuleManagerProps) {
 
         <Card className="p-4">
           <div className="flex items-center justify-between gap-3">
-            <div>
-              <h3 className="font-bold">{editing ? 'Edit record' : 'Add record'}</h3>
+          <div>
+              <h3 className="font-bold">
+                {editing ? `Edit ${singularLabel(config.label)}` : `Add ${singularLabel(config.label)}`}
+              </h3>
               <p className="mt-1 text-xs text-muted-foreground">
                 Validated before saving to Supabase.
               </p>
@@ -222,6 +224,19 @@ export function ModuleManager({ config, role }: ModuleManagerProps) {
       </div>
     </section>
   )
+}
+
+function singularLabel(label: string) {
+  const labels: Record<string, string> = {
+    Products: 'Product',
+    Articles: 'Article',
+    'Crop Guides': 'Crop Guide',
+    Events: 'Event',
+    Reviews: 'Review',
+    'Success Stories': 'Success Story',
+    'Gallery Items': 'Gallery Item',
+  }
+  return labels[label] ?? label.replace(/s$/, '')
 }
 
 function FieldInput({ field, form, disabled }: any) {
